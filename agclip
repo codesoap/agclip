@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+while clipnotify -s primary; do
+	clear
+	pattern="$(xclip -o -selection primay)"
+	printf 'Searching for "%s".\n' "$pattern"
+	ag "$pattern" "$@"
+	printf 'Search complete.\n'
+done
